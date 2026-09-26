@@ -1,0 +1,12 @@
+{
+  "total_events": 50000,
+  "memory_per_job_gb": 6,
+  "cores_per_job": 2,
+  "events_per_job_mini": 250,
+  "events_per_job_nano": 25000,
+  "base_output_path": "root://cmsdcache-kit-disk.gridka.de:1094//store/user/${USER}/mc_production",
+  "delphes_output_subdir": "delphes",
+  "workflow": "htcondor",
+  "das_datatier": "NANOAODSIM",
+  "htcondor_extra_args": "--htcondor-requirements '(TARGET.ProvidesCPU)&&(TARGET.ProvidesIO)&&(TARGET.Machine =!= \"mdm2.etp.kit.edu\")&&(TARGET.Machine =!= \"ms01.etp.kit.edu\")&&(TARGET.Machine =!= \"ms02.etp.kit.edu\")&&(TARGET.Machine =!= \"ms03.etp.kit.edu\")&&(TARGET.Machine =!= \"ms04.etp.kit.edu\")' --poll-interval 15"
+}

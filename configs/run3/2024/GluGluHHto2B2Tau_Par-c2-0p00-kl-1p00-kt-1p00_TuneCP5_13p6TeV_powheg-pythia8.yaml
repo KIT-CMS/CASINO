@@ -1,0 +1,24 @@
+# GluGluHHto2B2Tau_Par-c2-0p00-kl-1p00-kt-1p00_TuneCP5_13p6TeV_powheg-pythia8
+
+total_events: 2500000
+
+# A folder with the same name as the config file will be created in this path
+base_output_path: root://cmsdcache-kit-disk.gridka.de:1094//store/user/${USER}/mc_production
+
+steps:
+- name: MiniAODv6
+  filename: miniAODv6
+  setup_ids:
+  - HIG-RunIII2024Summer24wmLHEGS-01175
+  - HIG-RunIII2024Summer24DRPremix-00530
+  - HIG-RunIII2024Summer24MiniAODv6-00530
+  events_per_job: 250
+  cores_per_job: 2
+  memory_per_job: 6 # in GB
+- name: NanoAODv15
+  filename: nanoAODv15
+  setup_ids:
+  - HIG-RunIII2024Summer24NanoAODv15-00308
+  events_per_job: 25000
+  cores_per_job: 2
+  memory_per_job: 6 # in GB

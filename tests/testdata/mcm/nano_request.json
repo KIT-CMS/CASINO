@@ -1,0 +1,14 @@
+{
+  "results": {
+    "prepid": "HIG-RunIII2024Summer24NanoAODv15-00308",
+    "member_of_chain": [
+      "HIG-chain_RunIII2024Summer24wmLHEGS_flowRunIII2024Summer24DRPremixNoOutput_flowRunIII2024Summer24MiniAODv6_flowRunIII2024Summer24NanoAODv15-00118"
+    ],
+    "input_dataset": "/GluGluHHto2B2Tau_Par-c2-0p00-kl-1p00-kt-1p00_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24MiniAODv6-PowhegBugFix_150X_mcRun3_2024_realistic_v2-v2/MINIAODSIM",
+    "output_dataset": [
+      "/GluGluHHto2B2Tau_Par-c2-0p00-kl-1p00-kt-1p00_TuneCP5_13p6TeV_powheg-pythia8/RunIII2024Summer24NanoAODv15-PowhegBugFix_150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM"
+    ],
+    "total_events": 1000000,
+    "dataset_name": "GluGluHHto2B2Tau_Par-c2-0p00-kl-1p00-kt-1p00_TuneCP5_13p6TeV_powheg-pythia8"
+  }
+}

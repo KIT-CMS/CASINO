@@ -1,0 +1,20 @@
+# GluGluHHto2B2Tau_Par-c2-0p00-kl-1p00-kt-1p00_TuneCP5_13p6TeV_powheg-pythia8
+
+total_events: 1000
+base_output_path: /ceph/sdaigler
+
+steps:
+- name: MiniAODv6
+  setup_ids: 
+  - HIG-RunIII2024Summer24wmLHEGS-01175
+  - HIG-RunIII2024Summer24DRPremix-00530
+  - HIG-RunIII2024Summer24MiniAODv6-00530
+  events_per_job: 100
+  cores_per_job: 4
+  memory_per_job: 4 # in GB
+- name: NanoAODv15
+  setup_ids:
+  - HIG-RunIII2024Summer24NanoAODv15-00308
+  events_per_job: 1000
+  cores_per_job: 4
+  memory_per_job: 4 # in GB

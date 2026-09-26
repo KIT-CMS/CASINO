@@ -1,0 +1,11 @@
+total_events: 250000
+base_output_path: root://cmsdcache-kit-disk.gridka.de:1094//store/user/${USER}/mc_production/delphes
+steps:
+- name: delphes-tree
+  filename: delphes-tree
+  setup_ids:
+  - GEN-RunIII2024Summer24wmLHEGS-00001
+  - delphes:cards/delphes/delphes_card_CMS_hhbbtt_v1.tcl
+  events_per_job: 2500
+  cores_per_job: 2
+  memory_per_job: 6 # in GB

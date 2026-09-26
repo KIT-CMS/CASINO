@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Test and type-check caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Workflow runtime artifacts
+.*/
+*.log
+*.root
+configs/**/start-production.sh
+
+# Data folders
+artifacts/
+
+# AI Agents
+CLAUDE.md
+AGENTS.md
+
+docs/
