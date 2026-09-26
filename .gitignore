@@ -19,6 +19,7 @@ env/
 
 # Workflow runtime artifacts
 .*/
+!.github/
 *.log
 *.root
 configs/**/start-production.sh
