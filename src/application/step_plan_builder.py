@@ -186,6 +186,7 @@ class StepPlanBuilder:
             "events_per_job": step["events_per_job"],
             "cores_per_job": step["cores_per_job"],
             "memory_per_job": step["memory_per_job"],
+            "disk_per_job": step.get("disk_per_job"),
             "job_count": math.ceil(total_events / step["events_per_job"]),
             "predecessor_step": previous["slug"] if previous else None,
             "setup_ids": step.get("setup_ids", []),
