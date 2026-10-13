@@ -243,6 +243,7 @@ steps:
 | `steps[].setup_ids` | McM prep-ids whose `cmsDriver.py` commands run in one job (required) |
 | `steps[].events_per_job` | Events per job; sets the number of jobs of the step (required) |
 | `steps[].cores_per_job`, `steps[].memory_per_job` | CPU cores and memory in GB per job (required) |
+| `steps[].disk_per_job` | Scratch disk in GB per job (optional; see below) |
 | `steps[].filename` | Output file stem (optional) |
 
 Defaults used by `create-config` (events, cores, memory, output path, workflow, extra HTCondor
@@ -334,9 +335,11 @@ The working tree (including uncommitted changes), the step plan and the McM arti
 and shipped to the workers; a CMSSW tarball is built once per release and architecture.
 
 - The default accounting group is `cms.production` (`--htcondor-accounting-group`).
-- CPU, memory and disk requests are derived from the step config (disk: 3 GB + 2 MB per event);
-  `--htcondor-request-cpus`, `--htcondor-request-memory` (MB) and `--htcondor-request-disk` (KB)
-  override them when non-zero.
+- CPU, memory and disk requests are derived from the step config (disk: `disk_per_job` if set,
+  otherwise 3 GB + 2 MB per event); `--htcondor-request-cpus`, `--htcondor-request-memory` (MB) and
+  `--htcondor-request-disk` (KB) override them when non-zero. See
+  [docs/benchmarks/qcd_delphes_v1.md](docs/benchmarks/qcd_delphes_v1.md#disk-requests-2026-10-13) for how the
+  QCD Delphes values were chosen.
 - `casino create-config` and `casino list-configs` print the command including the
   `htcondor_extra_args` from `data/defaults.json` (node requirements, poll interval).
 
