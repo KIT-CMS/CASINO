@@ -6,6 +6,7 @@ steps:
   setup_ids:
   - GEN-RunIII2024Summer24GS-00013
   - delphes:cards/delphes/delphes_card_CMS_hhbbtt_v1.tcl
-  events_per_job: 7000
+  events_per_job: 50000
   cores_per_job: 2
-  memory_per_job: 6 # in GB
+  memory_per_job: 2 # in GB
+  disk_per_job: 2 # in GB
