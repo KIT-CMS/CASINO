@@ -464,17 +464,6 @@ class LawTasksTests(CasinoTestCase):
         self.assertEqual(requests("NanoAODv15", htcondor_disk_base_gb="4", htcondor_disk_per_event_mb="0.5")["RequestDisk"], str(4_000_000 + 500 * 1000))
         self.assertEqual(requests("NanoAODv15", htcondor_request_disk="6000000")["RequestDisk"], "6000000")
 
-    def test_htcondor_disk_request_from_step_disk_per_job(self):
-        config_path = self.write_default_config()
-        text = config_path.read_text(encoding="utf-8").replace("memory_per_job: 4", "memory_per_job: 4\n  disk_per_job: 2.5", 1)
-        config_path.write_text(text, encoding="utf-8")
-        tasks_module = self.import_tasks_module()
-        task = tasks_module.RunSampleStep(config=str(config_path), step="MiniAODv6", workflow="htcondor")
-        self.assertEqual(task._request_disk(), "2500000")
-        override = tasks_module.RunSampleStep(config=str(config_path), step="MiniAODv6", workflow="htcondor",
-                                              htcondor_request_disk="6000000")
-        self.assertEqual(override._request_disk(), "6000000")
-
     def test_htcondor_job_config_renders_bundle_inputs(self):
         config_path = self.prepare_plan()
         tasks_module = self.import_tasks_module()

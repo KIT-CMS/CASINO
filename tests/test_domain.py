@@ -55,7 +55,6 @@ class ConfigLoaderTests(CasinoTestCase):
             ("total_events: 1\nbase_output_path: /tmp\nsteps:\n- name: Step\n  setup_ids:\n  - X\n",
              r"Step 1 is missing required keys: \['cores_per_job', 'events_per_job', 'memory_per_job'\]"),
             (HEADER + "steps:\n" + MCM_STEP + "gridpack: root://h//p\n", "after steps are not supported"),
-            (HEADER + "steps:\n" + MCM_STEP + "  disk_per_job: 0\n", "disk_per_job must be a positive number"),
             (HEADER + "gridpack:\nsteps:\n" + MCM_STEP, "non-empty root:// URI"),
             (HEADER + "gridpack: true\nsteps:\n" + MCM_STEP, "non-empty root:// URI"),
             (HEADER + "gridpack: /ceph/gridpack.tgz\nsteps:\n" + MCM_STEP, "non-empty root:// URI"),

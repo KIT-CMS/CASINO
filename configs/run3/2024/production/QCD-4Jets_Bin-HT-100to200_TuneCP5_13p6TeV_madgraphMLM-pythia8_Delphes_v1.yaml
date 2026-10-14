@@ -9,4 +9,3 @@ steps:
   events_per_job: 50000
   cores_per_job: 2
   memory_per_job: 5 # in GB
-  disk_per_job: 8 # in GB

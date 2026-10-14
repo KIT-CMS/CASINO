@@ -167,7 +167,6 @@ class RunSampleStep(law.LocalWorkflow, CasinoCMSSWHTCondorWorkflow, CasinoTask):
                 "events_per_job": cfg["events_per_job"],
                 "cores_per_job": cfg["cores_per_job"],
                 "memory_per_job": cfg["memory_per_job"],
-                "disk_per_job": cfg.get("disk_per_job"),
                 "job_count": math.ceil(config["total_events"] / cfg["events_per_job"]),
                 "predecessor_step": steps[-1]["slug"] if steps else None,
             })
@@ -220,10 +219,7 @@ class RunSampleStep(law.LocalWorkflow, CasinoCMSSWHTCondorWorkflow, CasinoTask):
         configured = float(self.htcondor_request_disk)
         if configured > 0:
             return str(int(configured))
-        step = self._step()
-        if step.get("disk_per_job"):
-            return str(int(math.ceil(float(step["disk_per_job"]) * 1_000_000)))
-        return str(self._derived_disk_kb(int(step["events_per_job"])))
+        return str(self._derived_disk_kb(int(self._step()["events_per_job"])))
 
     def create_branch_map(self):
         return {branch: branch for branch in range(int(self._step()["job_count"]))}

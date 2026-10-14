@@ -36,8 +36,7 @@ class CasinoHTCondorWorkflow(law.htcondor.HTCondorWorkflow):
     )
     htcondor_request_disk = luigi.Parameter(
         default="0", significant=False,
-        description="Scratch disk per job (KB); 0 uses the step's disk_per_job, else derives "
-        "htcondor_disk_base + htcondor_disk_per_event * events_per_job.",
+        description="Scratch disk per job (KB); 0 derives htcondor_disk_base + htcondor_disk_per_event * events_per_job.",
     )
     htcondor_disk_base_gb = luigi.Parameter(
         default="3", significant=False,

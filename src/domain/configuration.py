@@ -147,9 +147,6 @@ class ConfigLoader:
                 _positive_int(step, key, index)
             if not isinstance(step["memory_per_job"], (int, float)) or step["memory_per_job"] <= 0:
                 raise ValueError(f"Step {index} must define a positive memory_per_job value")
-            disk = step.get("disk_per_job")
-            if disk is not None and (isinstance(disk, bool) or not isinstance(disk, (int, float)) or disk <= 0):
-                raise ValueError(f"Step {index} disk_per_job must be a positive number (GB)")
             filename = step.get("filename")
             if filename is not None:
                 if not isinstance(filename, str) or not filename.strip():
