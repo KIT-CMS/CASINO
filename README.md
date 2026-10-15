@@ -334,13 +334,9 @@ The working tree (including uncommitted changes), the step plan and the McM arti
 and shipped to the workers; a CMSSW tarball is built once per release and architecture.
 
 - The default accounting group is `cms.production` (`--htcondor-accounting-group`).
-- CPU, memory and disk requests are derived from the step config (disk: `--htcondor-disk-base-gb` +
-  `--htcondor-disk-per-event-mb` × `events_per_job`, default 3 GB + 2 MB per event);
-  `--htcondor-request-cpus`, `--htcondor-request-memory` (MB) and `--htcondor-request-disk` (KB) override
-  them when non-zero. Through `RunSample`, pass the disk flags as `--RunSampleStep-htcondor-disk-base-gb` and
-  `--RunSampleStep-htcondor-disk-per-event-mb`. See
-  [docs/benchmarks/qcd_delphes_v1.md](docs/benchmarks/qcd_delphes_v1.md#disk-requests-2026-10-13) for how the
-  QCD Delphes values were chosen.
+- CPU, memory and disk requests are derived from the step config (disk: 3 GB + 2 MB per event);
+  `--htcondor-request-cpus`, `--htcondor-request-memory` (MB) and `--htcondor-request-disk` (KB)
+  override them when non-zero.
 - `casino create-config` and `casino list-configs` print the command including the
   `htcondor_extra_args` from `data/defaults.json` (node requirements, poll interval).
 
